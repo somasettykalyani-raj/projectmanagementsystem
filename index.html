@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>📋 Project Management System</h1>
+
+  <!-- ADD PROJECT -->
+  <h3>Add Project</h3>
+  <input type="text" id="projectName" placeholder="Project Name">
+<input type="text" id="status" placeholder="Status">
+<input type="text" id="team" placeholder="Team">
+
+<button onclick="addProject()">Add</button>
+<h2>All Projects</h2>
+<table border="1" id="projectTable">
+  <tr>
+    <th>Project</th>
+    <th>Status</th>
+    <th>Team</th>
+    <th>Action</th>
+  </tr>
+</table>
+
+<script>
+// Load projects
+function loadProjects() {
+  fetch("http://localhost:3000/projects")
+    .then(res => res.json())
+    .then(data => {
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      data.forEach(p => {
+        const li = document.createElement("li");
+        li.innerText = p.name + " - " + p.status;
+        list.appendChild(li);
+      });
+    });
+}
+
+// Add project
+function addProject() {
+  const name = document.getElementById("name").value;
+  const status = document.getElementById("status").value;
+  const team = document.getElementById("team").value;
+
+  fetch("http://localhost:3000/add-project", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, status, team })
+  }).then(() => loadProjects());
+}
+
+// Load on start
+loadProjects();
+</script>
+<script src="app.js"></script>
+
+</body>
+</html>
