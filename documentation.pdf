@@ -1,0 +1,61 @@
+Project Title: Project Management System
+
+---
+
+1. Introduction
+Project Management System is a software application used to manage projects and tasks efficiently. It helps in organizing work, assigning tasks, and tracking progress.
+
+---
+
+2. Objective
+
+- To create and manage projects
+- To assign tasks to users
+- To track task progress
+- To store data using MongoDB
+
+---
+
+3. Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB
+
+---
+
+4. Methodology
+The system is developed using REST APIs.
+Data is stored in MongoDB collections:
+
+- Projects Collection
+- Tasks Collection
+
+Operations performed:
+
+- Insert data
+- Retrieve data
+- Update task status
+- Manage relationships between project and tasks
+
+---
+
+5. Results
+
+- Projects created successfully
+- Tasks assigned and updated
+- Database operations working correctly
+
+---
+
+6. Conclusion
+The system simplifies project tracking and task management.
+It improves efficiency and reduces manual errors.
+
+---
+
+7. Future Scope
+
+- Add login system
+- Build frontend UI
+- Add notifications
